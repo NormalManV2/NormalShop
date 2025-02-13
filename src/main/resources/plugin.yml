@@ -1,0 +1,7 @@
+name: NormalShop
+version: '1.0-SNAPSHOT'
+main: normalmanv2.normalShop.NormalShopPlugin
+api-version: '1.21'
+prefix: Normal
+load: STARTUP
+authors: [ NormalMan_V2 ]
