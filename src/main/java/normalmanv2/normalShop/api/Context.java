@@ -5,7 +5,6 @@ import normalmanv2.normalShop.api.shop.ShopHolder;
 import normalmanv2.normalShop.api.shop.ShopItem;
 
 import java.util.Optional;
-import java.util.UUID;
 
 public interface Context<T extends ContextType> {
 
@@ -29,6 +28,6 @@ public interface Context<T extends ContextType> {
         return getData("id", String.class);
     }
 
-    void putData(String key, Object value);
+    <Z> void putData(String key, Z value);
 
 }

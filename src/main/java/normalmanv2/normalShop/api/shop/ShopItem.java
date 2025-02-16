@@ -5,7 +5,10 @@ import org.bukkit.Material;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
-public interface ShopItem {
+import javax.annotation.Nullable;
+import java.io.Serializable;
+
+public interface ShopItem extends Serializable {
     /**
      * Get the name of the item.
      * @return The item name.
@@ -39,25 +42,25 @@ public interface ShopItem {
 
     /**
      * Builds the ItemStack object from relevant information within the ShopItem object.
-     * @param material The material of which the item should resemble.
+     * @param material The material of which the item should resemble. The material **MUST NOT BE** null.
      * @return The built ItemStack object.
      */
     ItemStack build(Material material);
 
     /**
      * Builds the itemStack from given parameters.
-     * @param material The material of which the item should resemble.
-     * @param displayName The display name of the item.
-     * @param lore The lore of the item.
+     * @param material The material of which the item should resemble. This can be null, defaults to
+     *                 Material.EMERALD.
+     * @param displayName The display name of the item. This can be null, defaults to internal name
+     *                    field.
+     * @param lore The lore of the item. This can be null, defaults to internal description field.
      * @return Returns the built ItemStack object.
      */
-    ItemStack build(Material material, String displayName, String... lore);
-
+    ItemStack build(@Nullable Material material, @Nullable String displayName, @Nullable String... lore);
 
     /**
      * This method is used to handle ui clicks. Context must not be null. It is used for (mostly) redundant
-     * internal click handling. (IE: Regular shop clicks, increase / decreasing amount, as well as a CUSTOM
-     * for any type that may be necessary).
+     * internal click handling.
      * @param event The click event, used for more specific information.
      * @param context The context of the click.
      */

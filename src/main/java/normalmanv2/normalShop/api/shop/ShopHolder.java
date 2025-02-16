@@ -1,6 +1,8 @@
 package normalmanv2.normalShop.api.shop;
 
-public interface ShopHolder {
+import org.bukkit.inventory.InventoryHolder;
+
+public interface ShopHolder extends InventoryHolder {
     /**
      * Get the unique identifier of the shop holder.
      * Can represent a player UUID, NPC ID, or other unique reference.

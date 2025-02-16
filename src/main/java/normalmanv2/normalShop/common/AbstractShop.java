@@ -73,4 +73,7 @@ public abstract class AbstractShop implements Shop {
 
     @Override
     public abstract Inventory openShop(Player player);
+
+    @Override
+    public abstract Inventory decorate(Inventory inventory);
 }

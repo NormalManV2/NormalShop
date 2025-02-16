@@ -3,9 +3,10 @@ package normalmanv2.normalShop.api.shop;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
+import java.io.Serializable;
 import java.util.Map;
 
-public interface Shop {
+public interface Shop extends Serializable {
 
     /**
      * The id of the shop.
@@ -72,4 +73,6 @@ public interface Shop {
      * @return Returns the opened GUI.
      */
     Inventory openShop(Player player);
+
+    Inventory decorate(Inventory inventory);
 }
